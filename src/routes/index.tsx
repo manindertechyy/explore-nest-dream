@@ -67,17 +67,31 @@ function HomePage() {
           </div>
 
           {/* Search card */}
-          <div className="relative mt-10 rounded-3xl bg-card/95 p-2 shadow-2xl backdrop-blur-xl md:mt-14">
-            <div className="flex gap-1 border-b border-border px-4 pt-3">
-              <button onClick={() => setTab("flights")} className={`flex items-center gap-2 rounded-t-lg px-5 py-3 text-sm font-semibold transition-colors ${tab === "flights" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
-                <Plane className="h-4 w-4" /> Flights
+          <div className="relative mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-soft)] md:mt-12">
+            <div className="flex gap-1 border-b border-border bg-secondary/40 px-3 pt-2">
+              <button
+                onClick={() => setTab("flights")}
+                className={`flex items-center gap-1.5 rounded-t-md px-3.5 py-2 text-xs font-semibold transition-colors ${
+                  tab === "flights"
+                    ? "bg-card text-foreground shadow-[0_-1px_0_0_var(--color-border)]"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Plane className="h-3.5 w-3.5" /> Flights
               </button>
-              <button onClick={() => setTab("hotels")} className={`flex items-center gap-2 rounded-t-lg px-5 py-3 text-sm font-semibold transition-colors ${tab === "hotels" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>
-                <Hotel className="h-4 w-4" /> Hotels
+              <button
+                onClick={() => setTab("hotels")}
+                className={`flex items-center gap-1.5 rounded-t-md px-3.5 py-2 text-xs font-semibold transition-colors ${
+                  tab === "hotels"
+                    ? "bg-card text-foreground shadow-[0_-1px_0_0_var(--color-border)]"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <Hotel className="h-3.5 w-3.5" /> Hotels
               </button>
             </div>
 
-            <div className="grid gap-3 p-4 md:grid-cols-[1fr_1fr_1fr_auto]">
+            <div className="grid gap-3 p-3 text-foreground md:grid-cols-[1fr_1fr_1fr_auto] md:p-4">
               {tab === "flights" ? (
                 <>
                   <Field label="From"><Input list="cities" value={from} onChange={(e) => setFrom(e.target.value)} placeholder="Departure city" /></Field>
@@ -92,7 +106,7 @@ function HomePage() {
                 </>
               )}
               <datalist id="cities">{POPULAR_CITIES.map((c) => <option key={c} value={c} />)}</datalist>
-              <Button onClick={onSearch} size="lg" className="h-auto self-end bg-coral text-white hover:bg-coral/90">
+              <Button onClick={onSearch} className="h-10 self-end bg-foreground text-background hover:bg-foreground/90">
                 <Search className="mr-2 h-4 w-4" /> Search
               </Button>
             </div>
