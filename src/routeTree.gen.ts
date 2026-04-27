@@ -9,38 +9,160 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WishlistRouteImport } from './routes/wishlist'
+import { Route as HotelsRouteImport } from './routes/hotels'
+import { Route as FlightsRouteImport } from './routes/flights'
+import { Route as BookingsRouteImport } from './routes/bookings'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HotelsIdRouteImport } from './routes/hotels.$id'
+import { Route as BookingHotelIdRouteImport } from './routes/booking.hotel.$id'
+import { Route as BookingFlightIdRouteImport } from './routes/booking.flight.$id'
 
+const WishlistRoute = WishlistRouteImport.update({
+  id: '/wishlist',
+  path: '/wishlist',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HotelsRoute = HotelsRouteImport.update({
+  id: '/hotels',
+  path: '/hotels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FlightsRoute = FlightsRouteImport.update({
+  id: '/flights',
+  path: '/flights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingsRoute = BookingsRouteImport.update({
+  id: '/bookings',
+  path: '/bookings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HotelsIdRoute = HotelsIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => HotelsRoute,
+} as any)
+const BookingHotelIdRoute = BookingHotelIdRouteImport.update({
+  id: '/booking/hotel/$id',
+  path: '/booking/hotel/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookingFlightIdRoute = BookingFlightIdRouteImport.update({
+  id: '/booking/flight/$id',
+  path: '/booking/flight/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bookings': typeof BookingsRoute
+  '/flights': typeof FlightsRoute
+  '/hotels': typeof HotelsRouteWithChildren
+  '/wishlist': typeof WishlistRoute
+  '/hotels/$id': typeof HotelsIdRoute
+  '/booking/flight/$id': typeof BookingFlightIdRoute
+  '/booking/hotel/$id': typeof BookingHotelIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bookings': typeof BookingsRoute
+  '/flights': typeof FlightsRoute
+  '/hotels': typeof HotelsRouteWithChildren
+  '/wishlist': typeof WishlistRoute
+  '/hotels/$id': typeof HotelsIdRoute
+  '/booking/flight/$id': typeof BookingFlightIdRoute
+  '/booking/hotel/$id': typeof BookingHotelIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bookings': typeof BookingsRoute
+  '/flights': typeof FlightsRoute
+  '/hotels': typeof HotelsRouteWithChildren
+  '/wishlist': typeof WishlistRoute
+  '/hotels/$id': typeof HotelsIdRoute
+  '/booking/flight/$id': typeof BookingFlightIdRoute
+  '/booking/hotel/$id': typeof BookingHotelIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bookings'
+    | '/flights'
+    | '/hotels'
+    | '/wishlist'
+    | '/hotels/$id'
+    | '/booking/flight/$id'
+    | '/booking/hotel/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bookings'
+    | '/flights'
+    | '/hotels'
+    | '/wishlist'
+    | '/hotels/$id'
+    | '/booking/flight/$id'
+    | '/booking/hotel/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/bookings'
+    | '/flights'
+    | '/hotels'
+    | '/wishlist'
+    | '/hotels/$id'
+    | '/booking/flight/$id'
+    | '/booking/hotel/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookingsRoute: typeof BookingsRoute
+  FlightsRoute: typeof FlightsRoute
+  HotelsRoute: typeof HotelsRouteWithChildren
+  WishlistRoute: typeof WishlistRoute
+  BookingFlightIdRoute: typeof BookingFlightIdRoute
+  BookingHotelIdRoute: typeof BookingHotelIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wishlist': {
+      id: '/wishlist'
+      path: '/wishlist'
+      fullPath: '/wishlist'
+      preLoaderRoute: typeof WishlistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hotels': {
+      id: '/hotels'
+      path: '/hotels'
+      fullPath: '/hotels'
+      preLoaderRoute: typeof HotelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/flights': {
+      id: '/flights'
+      path: '/flights'
+      fullPath: '/flights'
+      preLoaderRoute: typeof FlightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bookings': {
+      id: '/bookings'
+      path: '/bookings'
+      fullPath: '/bookings'
+      preLoaderRoute: typeof BookingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +170,49 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/hotels/$id': {
+      id: '/hotels/$id'
+      path: '/$id'
+      fullPath: '/hotels/$id'
+      preLoaderRoute: typeof HotelsIdRouteImport
+      parentRoute: typeof HotelsRoute
+    }
+    '/booking/hotel/$id': {
+      id: '/booking/hotel/$id'
+      path: '/booking/hotel/$id'
+      fullPath: '/booking/hotel/$id'
+      preLoaderRoute: typeof BookingHotelIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booking/flight/$id': {
+      id: '/booking/flight/$id'
+      path: '/booking/flight/$id'
+      fullPath: '/booking/flight/$id'
+      preLoaderRoute: typeof BookingFlightIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface HotelsRouteChildren {
+  HotelsIdRoute: typeof HotelsIdRoute
+}
+
+const HotelsRouteChildren: HotelsRouteChildren = {
+  HotelsIdRoute: HotelsIdRoute,
+}
+
+const HotelsRouteWithChildren =
+  HotelsRoute._addFileChildren(HotelsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookingsRoute: BookingsRoute,
+  FlightsRoute: FlightsRoute,
+  HotelsRoute: HotelsRouteWithChildren,
+  WishlistRoute: WishlistRoute,
+  BookingFlightIdRoute: BookingFlightIdRoute,
+  BookingHotelIdRoute: BookingHotelIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

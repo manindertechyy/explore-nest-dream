@@ -1,6 +1,7 @@
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
+@import "leaflet/dist/leaflet.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -61,27 +62,43 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@theme inline {
+  --color-ocean: var(--ocean);
+  --color-ocean-deep: var(--ocean-deep);
+  --color-coral: var(--coral);
+  --color-sand: var(--sand);
+}
+
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --radius: 0.875rem;
+  --background: oklch(0.99 0.005 200);
+  --foreground: oklch(0.18 0.04 220);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.18 0.04 220);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --popover-foreground: oklch(0.18 0.04 220);
+  --primary: oklch(0.55 0.13 200);
+  --primary-foreground: oklch(0.99 0.005 200);
+  --secondary: oklch(0.95 0.02 200);
+  --secondary-foreground: oklch(0.25 0.06 220);
+  --muted: oklch(0.96 0.01 210);
+  --muted-foreground: oklch(0.5 0.03 220);
+  --accent: oklch(0.72 0.18 35);
+  --accent-foreground: oklch(0.99 0.005 200);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.99 0.005 200);
+  --border: oklch(0.9 0.015 210);
+  --input: oklch(0.92 0.012 210);
+  --ring: oklch(0.55 0.13 200);
+  --ocean: oklch(0.55 0.13 200);
+  --ocean-deep: oklch(0.35 0.1 220);
+  --coral: oklch(0.72 0.18 35);
+  --sand: oklch(0.95 0.04 80);
+  --gradient-hero: linear-gradient(135deg, oklch(0.35 0.1 220 / 0.7), oklch(0.55 0.13 200 / 0.4));
+  --gradient-ocean: linear-gradient(135deg, oklch(0.55 0.13 200), oklch(0.65 0.15 190));
+  --gradient-sunset: linear-gradient(135deg, oklch(0.72 0.18 35), oklch(0.78 0.15 60));
+  --shadow-soft: 0 8px 30px -10px oklch(0.35 0.1 220 / 0.25);
+  --shadow-glow: 0 10px 40px -10px oklch(0.55 0.13 200 / 0.4);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +157,18 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: ui-sans-serif, system-ui, sans-serif;
   }
+
+  h1, h2, h3, h4 {
+    font-family: "Playfair Display", Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  z-index: 0;
 }
