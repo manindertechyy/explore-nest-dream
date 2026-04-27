@@ -5,7 +5,7 @@ import { useWishlist, wishlistStore, type WishlistItem } from "@/lib/store";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import type { Hotel, Flight } from "@/lib/mock-api";
+
 
 const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
 const inFour = new Date(Date.now() + 4 * 86400000).toISOString().slice(0, 10);
