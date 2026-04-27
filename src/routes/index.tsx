@@ -58,10 +58,10 @@ function HomePage() {
             <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-medium backdrop-blur">
               <Sparkles className="h-3.5 w-3.5" /> Your next trip starts here
             </span>
-            <h1 className="mt-5 text-5xl font-bold leading-[1.05] md:text-7xl">
+            <h1 className="mt-5 text-4xl font-bold leading-[1.1] tracking-tight md:text-6xl">
               Plan a journey<br />you'll never forget.
             </h1>
-            <p className="mt-5 max-w-lg text-lg text-white/85">
+            <p className="mt-4 max-w-lg text-base text-white/80 md:text-lg">
               Search flights, book stays, explore on the map and save your favorite trips — all in one elegant planner.
             </p>
           </div>
@@ -105,7 +105,7 @@ function HomePage() {
         <div className="flex items-end justify-between">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-coral">Trending now</p>
-            <h2 className="mt-2 text-4xl font-bold md:text-5xl">Where everyone's going.</h2>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">Where everyone's going.</h2>
           </div>
           <Link to="/hotels" search={{ city: "Bali", checkIn: tomorrow, checkOut: new Date(Date.now() + 4 * 86400000).toISOString().slice(0, 10) }} className="hidden text-sm font-medium text-primary hover:underline md:inline-flex md:items-center md:gap-1">
             Explore all <ArrowRight className="h-4 w-4" />
@@ -134,7 +134,7 @@ function HomePage() {
       {/* Features */}
       <section className="bg-secondary/40 py-20">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <h2 className="text-center text-4xl font-bold md:text-5xl">Everything you need to wander.</h2>
+          <h2 className="text-center text-3xl font-bold tracking-tight md:text-4xl">Everything you need to wander.</h2>
           <div className="mt-14 grid gap-6 md:grid-cols-4">
             {[
               { icon: Plane, title: "Smart flight search", body: "Compare fares across airlines instantly." },
@@ -159,7 +159,7 @@ function HomePage() {
           <div className="flex items-center gap-2 text-sm font-medium opacity-90">
             <Globe2 className="h-4 w-4" /> Built for explorers
           </div>
-          <h2 className="mt-3 max-w-2xl text-4xl font-bold md:text-5xl">Your dream itinerary, one click away.</h2>
+          <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight md:text-4xl">Your dream itinerary, one click away.</h2>
           <p className="mt-4 max-w-xl opacity-90">Mock APIs let you experiment freely — search, book, save, and review without spending a cent.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90"><Link to="/flights" search={{ from: "New York", to: "Tokyo", date: tomorrow }}>Search flights</Link></Button>
