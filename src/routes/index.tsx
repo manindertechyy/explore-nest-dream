@@ -169,7 +169,7 @@ function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-20 md:px-8">
-        <div className="overflow-hidden rounded-3xl bg-[var(--gradient-ocean)] p-10 text-primary-foreground md:p-16">
+        <div className="overflow-hidden rounded-3xl p-10 text-primary-foreground md:p-16" style={{ backgroundImage: "var(--gradient-ocean)" }}>
           <div className="flex items-center gap-2 text-sm font-medium opacity-90">
             <Globe2 className="h-4 w-4" /> Built for explorers
           </div>
