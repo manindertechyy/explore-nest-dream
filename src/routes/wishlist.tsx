@@ -311,5 +311,3 @@ function Badge({ children }: { children: React.ReactNode }) {
   return <span className="ml-2 inline-block rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-primary">{children}</span>;
 }
 
-// keep reference so type import stays used
-type _Unused = Hotel | Flight;
