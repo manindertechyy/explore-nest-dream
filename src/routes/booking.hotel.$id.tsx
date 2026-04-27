@@ -7,6 +7,7 @@ import { getHotel } from "@/lib/mock-api";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { bookingsStore } from "@/lib/store";
+import { sendMockConfirmationEmail } from "@/lib/mock-email";
 import { toast } from "sonner";
 
 const tomorrow = new Date(Date.now() + 86400000).toISOString().slice(0, 10);
@@ -39,7 +40,7 @@ function BookHotel() {
   const nights = Math.max(1, Math.round((new Date(search.checkOut).getTime() - new Date(search.checkIn).getTime()) / 86400000));
   const total = hotel.pricePerNight * nights;
 
-  const onConfirm = (e: React.FormEvent) => {
+  const onConfirm = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email) return toast.error("Please fill in your details");
     const booking = bookingsStore.add({
@@ -52,6 +53,7 @@ function BookHotel() {
       total,
     });
     toast.success("Booking confirmed!");
+    sendMockConfirmationEmail(booking).catch(() => {});
     navigate({ to: "/bookings", search: { confirmed: booking.id } });
   };
 
