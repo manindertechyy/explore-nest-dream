@@ -38,7 +38,7 @@ function WishlistPage() {
   const canCompare = compareMode && selectedItems.length >= 2;
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
+    <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-6xl flex-col px-4 py-10 md:px-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="text-4xl font-bold md:text-5xl">Your wishlist</h1>

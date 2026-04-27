@@ -1,6 +1,23 @@
 import { Link } from "@tanstack/react-router";
-import { Plane, Heart, Compass, Hotel, Calendar } from "lucide-react";
+import { Plane, Heart, Hotel, Calendar } from "lucide-react";
 import { useWishlist } from "@/lib/store";
+
+function Logo() {
+  // Minimalist mark: thin circle + paper-plane arrow — monoline, single color
+  return (
+    <svg viewBox="0 0 32 32" className="h-7 w-7 text-primary" fill="none" aria-hidden="true">
+      <circle cx="16" cy="16" r="13" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M8.5 16.5 L22 9 L17.5 22 L15 17 L8.5 16.5 Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+        fill="currentColor"
+        fillOpacity="0.15"
+      />
+    </svg>
+  );
+}
 
 export function SiteHeader() {
   const wishlist = useWishlist();
@@ -8,13 +25,16 @@ export function SiteHeader() {
   const activeProps = { className: "!text-primary font-semibold" };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/80 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--gradient-ocean)] shadow-[var(--shadow-glow)]">
-            <Compass className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
+        <Link to="/" className="group flex items-center gap-2.5">
+          <Logo />
+          <div className="flex flex-col leading-none">
+            <span className="text-lg font-semibold tracking-tight">Voyago</span>
+            <span className="mt-0.5 text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
+              wander wisely
+            </span>
           </div>
-          <span className="text-xl font-semibold tracking-tight">Voyago</span>
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">
