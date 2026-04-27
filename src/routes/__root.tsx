@@ -76,8 +76,14 @@ function RootComponent() {
         <Outlet />
       </main>
       <footer className="border-t border-border/60 bg-card py-8">
-        <div className="mx-auto max-w-7xl px-4 text-center text-sm text-muted-foreground md:px-8">
-          © {new Date().getFullYear()} Voyago — Wander wisely.
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-4 text-center text-sm text-muted-foreground md:flex-row md:gap-3 md:px-8">
+          <span>© {new Date().getFullYear()} Voyago — Wander wisely.</span>
+          <span className="hidden md:inline">·</span>
+          <span className="inline-flex items-center gap-1.5">
+            Created and Designed by
+            <span className="font-medium text-foreground">Maninder Singh</span>
+            <span aria-label="love" className="text-red-500">❤</span>
+          </span>
         </div>
       </footer>
       <Toaster position="top-center" />
