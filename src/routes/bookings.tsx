@@ -52,7 +52,7 @@ function BookingsPage() {
         </div>
       )}
 
-      <h1 className="no-print text-4xl font-bold md:text-5xl">Your bookings</h1>
+      <h1 className="no-print text-3xl font-bold tracking-tight md:text-4xl">Your bookings</h1>
       <p className="no-print mt-2 text-muted-foreground">{bookings.length} {bookings.length === 1 ? "trip" : "trips"} planned</p>
 
       {bookings.length === 0 ? (

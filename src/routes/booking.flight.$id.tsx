@@ -59,7 +59,7 @@ function BookFlight() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-10 md:px-8">
-      <h1 className="text-4xl font-bold md:text-5xl">Confirm your flight</h1>
+      <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Confirm your flight</h1>
       <div className="mt-8 grid gap-8 md:grid-cols-[1fr_360px]">
         <form onSubmit={onConfirm} className="space-y-5 rounded-2xl border border-border bg-card p-6">
           <h2 className="text-xl font-semibold">Passenger details</h2>

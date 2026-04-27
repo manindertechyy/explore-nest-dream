@@ -56,7 +56,7 @@ function HotelDetail() {
       <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_360px]">
         <div>
           <p className="flex items-center gap-1 text-sm text-muted-foreground"><MapPin className="h-4 w-4" />{hotel.city}, {hotel.country}</p>
-          <h1 className="mt-2 text-4xl font-bold md:text-5xl">{hotel.name}</h1>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight md:text-4xl">{hotel.name}</h1>
           <div className="mt-3 flex items-center gap-3">
             <div className="flex items-center gap-1 rounded-lg bg-primary/10 px-3 py-1.5 text-base font-bold text-primary">
               <Star className="h-4 w-4 fill-current" /> {hotel.rating}
