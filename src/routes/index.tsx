@@ -174,7 +174,7 @@ function HomePage() {
             <Globe2 className="h-4 w-4" /> Built for explorers
           </div>
           <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight md:text-4xl">Your dream itinerary, one click away.</h2>
-          <p className="mt-4 max-w-xl opacity-90">Mock APIs let you experiment freely — search, book, save, and review without spending a cent.</p>
+          <p className="mt-4 max-w-xl opacity-90">Developer maninder techyy — search, book, save, and review without spending a cent.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90"><Link to="/flights" search={{ from: "New York", to: "Tokyo", date: tomorrow }}>Search flights</Link></Button>
             <Button asChild size="lg" variant="outline" className="border-white bg-transparent text-white hover:bg-white/10"><Link to="/hotels" search={{ city: "Bali", checkIn: tomorrow, checkOut: new Date(Date.now() + 4 * 86400000).toISOString().slice(0, 10) }}>Browse hotels</Link></Button>
