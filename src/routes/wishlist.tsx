@@ -41,7 +41,7 @@ function WishlistPage() {
     <div className="mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-6xl flex-col px-4 py-10 md:px-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-bold md:text-5xl">Your wishlist</h1>
+          <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Your wishlist</h1>
           <p className="mt-2 text-muted-foreground">{items.length} saved {items.length === 1 ? "item" : "items"}</p>
         </div>
         {items.length > 0 && (

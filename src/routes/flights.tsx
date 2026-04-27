@@ -35,7 +35,7 @@ function FlightsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
-      <h1 className="text-4xl font-bold md:text-5xl">Find your flight</h1>
+      <h1 className="text-3xl font-bold tracking-tight md:text-4xl">Find your flight</h1>
       <p className="mt-2 text-muted-foreground">{flights.length} options from {search.from} to {search.to}</p>
 
       <div className="mt-6 grid gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm md:grid-cols-[1fr_1fr_1fr_auto]">
