@@ -172,3 +172,12 @@
   border-radius: var(--radius);
   z-index: 0;
 }
+
+/* Print styles — only show the receipt when printing */
+@media print {
+  @page { margin: 12mm; }
+  body * { visibility: hidden !important; }
+  .print-receipt, .print-receipt * { visibility: visible !important; }
+  .print-receipt { position: absolute !important; left: 0; top: 0; width: 100%; background: white !important; }
+  .no-print { display: none !important; }
+}
