@@ -67,7 +67,7 @@ function HotelDetail() {
 
           <h2 className="mt-10 text-2xl font-bold">Amenities</h2>
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
-            {hotel.amenities.map((a) => (
+            {hotel.amenities.map((a: string) => (
               <div key={a} className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2">
                 <Check className="h-4 w-4 text-primary" /> <span className="text-sm">{a}</span>
               </div>

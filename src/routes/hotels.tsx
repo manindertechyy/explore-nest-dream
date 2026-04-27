@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { Star, MapPin, Search } from "lucide-react";
-import { searchHotels, POPULAR_CITIES } from "@/lib/mock-api";
+import { searchHotels, POPULAR_CITIES, type Hotel } from "@/lib/mock-api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { WishlistButton } from "@/components/wishlist-button";
@@ -53,7 +53,7 @@ function HotelsPage() {
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_420px]">
         <div className="space-y-5">
-          {hotels.map((h) => (
+          {hotels.map((h: Hotel) => (
             <div key={h.id} className="group grid gap-4 overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-[var(--shadow-soft)] md:grid-cols-[280px_1fr]">
               <div className="relative h-56 md:h-full">
                 <img src={h.image} alt={h.name} loading="lazy" className="h-full w-full object-cover" />
@@ -71,7 +71,7 @@ function HotelsPage() {
                   <span className="text-sm text-muted-foreground">({h.reviews} reviews)</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
-                  {h.amenities.slice(0, 4).map((a) => (
+                  {h.amenities.slice(0, 4).map((a: string) => (
                     <span key={a} className="rounded-full bg-secondary px-2.5 py-0.5 text-xs text-secondary-foreground">{a}</span>
                   ))}
                 </div>

@@ -2,7 +2,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { Plane, ArrowRight, Clock, Search } from "lucide-react";
-import { searchFlights, POPULAR_CITIES } from "@/lib/mock-api";
+import { searchFlights, POPULAR_CITIES, type Flight } from "@/lib/mock-api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { WishlistButton } from "@/components/wishlist-button";
@@ -47,7 +47,7 @@ function FlightsPage() {
       </div>
 
       <div className="mt-8 space-y-4">
-        {flights.map((f) => (
+        {flights.map((f: Flight) => (
           <div key={f.id} className="group relative grid gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-[var(--shadow-soft)] md:grid-cols-[auto_1fr_auto_auto] md:items-center">
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
